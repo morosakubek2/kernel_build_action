@@ -25,9 +25,9 @@ jobs:
           ksu: true
           ksu-version: main
           android-version: 14
-          aosp-clang-version: r510928
+          aosp-clang-version: r450784d
           python-27: ture
-          disable-lto: false
+          disable-lto: true
           anykernel3: true
           ccache: true
           apatch: false
