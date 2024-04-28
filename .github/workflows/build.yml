@@ -15,8 +15,8 @@ jobs:
     - name: Build Kernel
       uses: dabao1955/kernel_build_action@main
       with:
-          kernel-url: https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas
-          #kernel-dir: msm-4.19
+          kernel-url: https://github.com/morosakubek2/android_kernel_samsung_b2q
+          kernel-dir: main
           branch: main
           config: b2q_eur_openx_defconfig
           arch: arm64
