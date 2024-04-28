@@ -26,6 +26,7 @@ jobs:
           ksu-version: main
           android-version: 14
           aosp-clang-version: r510928
+          other-clang-url: https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+/refs/heads/main/clang-r510928
           python-27: false
           disable-lto: false
           anykernel3: true
