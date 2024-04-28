@@ -29,5 +29,5 @@ jobs:
           python-27: false
           disable-lto: false
           anykernel3: true
-          ccache: true
+          ccache: false
           apatch: true
