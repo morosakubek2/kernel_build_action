@@ -16,16 +16,18 @@ jobs:
       uses: dabao1955/kernel_build_action@main
       with:
           kernel-url: https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas
-          kernel-dir: msm-4.19
-          branch: taffy
-          config: cas_defconfig
+          #kernel-dir: msm-4.19
+          branch: main
+          config: b2q_eur_openx_defconfig
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
-          ksu: true
+          ksu: false
           ksu-version: main
-          android-version: 12
-          aosp-clang-version: r383902
-          python-27: true
-          disable-lto: true
+          android-version: 14
+          aosp-clang-version: r450784d
+          python-27: false
+          disable-lto: false
           anykernel3: true
+          ccache: true
+          apatch: true
