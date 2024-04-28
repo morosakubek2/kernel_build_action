@@ -37,8 +37,7 @@ inputs:
     default: arm64
   android-version:
     description: 'Android version.'
-    required: true
-    default: 14
+    required: false
   apatch:
     description: 'APatch function support'
     required: false
