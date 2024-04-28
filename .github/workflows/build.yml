@@ -22,8 +22,7 @@ jobs:
           arch: arm64
           aosp-gcc: false
           aosp-clang: false
-          other-clang-url: https://github.com/ravindu644/Toolchains_for_Snapdragon/tree/84b1fd1c43ce774b82616b7f74113c83c433fbd9/llvm-arm-toolchain-ship-10.0
-          ksu: true
+          other-clang-url: https://github.com/VH-Devices/toolchains.git
           ksu-version: main
           android-version: 14
           aosp-clang-version: r498229b
