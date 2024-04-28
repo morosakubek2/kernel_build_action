@@ -18,7 +18,7 @@ jobs:
           kernel-url: https://github.com/morosakubek2/android_kernel_samsung_b2q
           kernel-dir: main
           branch: main
-          config: b2q_eur_openx_defconfig
+          config: vendor/b2q_eur_openx_defconfig
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
