@@ -22,7 +22,7 @@ jobs:
           arch: arm64
           aosp-gcc: false
           aosp-clang: false
-          other-clang-url: https://github.com/VH-Devices/toolchains.git
+          other-clang-url: https://github.com/kdrag0n/proton-clang.git
           ksu-version: main
           android-version: 14
           aosp-clang-version: r498229b
