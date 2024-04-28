@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Build Kernel
-      uses: dabao1955/kernel_build_action@main
+      uses: morosakubek2/kernel_build_action@main
       with:
           kernel-url: https://github.com/morosakubek2/android_kernel_samsung_b2q
           kernel-dir: main
@@ -21,12 +21,11 @@ jobs:
           config: b2q_eur_openx_defconfig
           arch: arm64
           aosp-gcc: true
-          aosp-clang: false
+          aosp-clang: true
           ksu: false
           ksu-version: main
           android-version: 14
           aosp-clang-version: r510928
-          other-clang-url: https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+/refs/heads/main/clang-r510928
           python-27: false
           disable-lto: false
           anykernel3: true
