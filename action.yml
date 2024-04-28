@@ -258,11 +258,7 @@ runs:
              echo "::group:: Downloading AOSP clang"
              if [ ${{ inputs.aosp-gcc }} = true ]; then
                  mkdir $HOME/clang -p -v
-                 #if [ ! -z ${{ inputs.android-version }} ]; then
-                 #    aria2c -o aosp-clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/${{ inputs.android-version }}/clang-${{ inputs.aosp-clang-version }}.tar.gz  
-                 #else
-                     aria2c -o aosp-clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-${{ inputs.aosp-clang-version }}.tar.gz
-                 #fi
+                 aria2c -o aosp-clang.tar.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-${{ inputs.aosp-clang-version }}.tar.gz
                  tar -C $HOME/clang -zxf aosp-clang.tar.gz
              else
                  echo "Please enable aosp-gcc."
