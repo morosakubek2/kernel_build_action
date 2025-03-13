@@ -21,10 +21,8 @@ jobs:
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
-          other-clang-url: false
-          other-clang-branch: false
-          android-version: android14-gsi
-          aosp-clang-version: r487747c
+          other-clang-url: https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b.git
+          other-clang-branch: lineage-20.0
           ksu: true
           ksu-version: main
           disable-lto: true
