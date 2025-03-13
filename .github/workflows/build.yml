@@ -16,13 +16,13 @@ jobs:
       uses: morosakubek2/kernel_build_action@main
       with:
           kernel-url: https://github.com/morosakubek2/android_kernel_samsung_sm8350_flip3
-          kernel-dir: flip3
           kernel-branch: flip3
           config: vendor/b2q_defconfig
           arch: arm64
           aosp-gcc: false
           aosp-clang: false
           other-clang-url: https://github.com/kdrag0n/proton-clang.git
+          other-clang-branch: master
           ksu: true
           ksu-version: main
           android-version: 14
