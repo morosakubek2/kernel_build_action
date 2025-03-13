@@ -16,7 +16,6 @@ jobs:
       uses: morosakubek2/kernel_build_action@main
       with:
           kernel-url: https://github.com/morosakubek2/android_kernel_samsung_sm8350_flip3
-          kernel-dir: flip3
           kernel-branch: flip3
           config: vendor/b2q_defconfig
           arch: arm64
