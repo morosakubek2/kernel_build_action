@@ -19,14 +19,14 @@ jobs:
           kernel-branch: flip3
           config: vendor/b2q_defconfig
           arch: arm64
-          aosp-gcc: false
-          aosp-clang: false
-          other-clang-url: https://github.com/kdrag0n/proton-clang.git
-          other-clang-branch: master
+          aosp-gcc: true
+          aosp-clang: true
+          other-clang-url: false
+          other-clang-branch: false
           ksu: true
           ksu-version: main
           android-version: 14
-          aosp-clang-version: r498229b
+          aosp-clang-version: r487747c
           disable-lto: true
           anykernel3: true
           ccache: true
