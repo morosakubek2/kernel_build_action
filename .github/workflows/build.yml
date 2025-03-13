@@ -13,18 +13,21 @@ jobs:
 
     steps:
     - name: Build Kernel
-      uses: dabao1955/kernel_build_action@main
+      uses: morosakubek2/kernel_build_action@main
       with:
-          kernel-url: https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas
-          kernel-dir: msm-4.19
-          kernel-branch: taffy
-          config: cas_defconfig
+          kernel-url: https://github.com/morosakubek2/android_kernel_samsung_sm8350_flip3
+          kernel-dir: main
+          kernel-branch: flip3
+          config: vendor/b2q_defconfig
           arch: arm64
-          aosp-gcc: true
-          aosp-clang: true
+          aosp-gcc: false
+          aosp-clang: false
+          other-clang-url: https://github.com/kdrag0n/proton-clang.git
           ksu: true
           ksu-version: main
-          android-version: 12
-          aosp-clang-version: r383902
+          android-version: 14
+          aosp-clang-version: r498229b
           disable-lto: true
           anykernel3: true
+          ccache: true
+          apatch: false
