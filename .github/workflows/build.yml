@@ -23,6 +23,8 @@ jobs:
           aosp-clang: true
           other-clang-url: false
           other-clang-branch: false
+          android-version: android14-gsi
+          aosp-clang-version: r487747c
           ksu: true
           ksu-version: main
           disable-lto: true
