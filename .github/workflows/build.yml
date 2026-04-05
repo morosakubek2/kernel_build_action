@@ -1,30 +1,57 @@
-# A simple action usage
-name: Build Kernel
+# .github/workflows/build.yml
+name: Build Kernel - Samsung Flip3 (b2q)
+
 on:
   workflow_dispatch:
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - '.github/workflows/build.yml'
+
+permissions:
+  contents: write  # Do tworzenia release'ów
 
 jobs:
-  Build-Kernel:
-    strategy:
-      fail-fast: false
+  build:
+    name: 🐎 Build Kernel
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    timeout-minutes: 180
 
     steps:
-      - name: Build Kernel
-        uses: dabao1955/kernel_build_action@main
+      - name: 🚀 Build Kernel
+        uses: morosakubek2/kernel_build_action@main
         with:
-          kernel-url: https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas
-          kernel-dir: msm-4.19
-          kernel-branch: taffy
-          config: cas_defconfig
+          # 📁 Źródło kernela
+          kernel-url: https://github.com/morosakubek2/flip_3_android_kernel_samsung_sm8350
+          kernel-branch: Flip3-Android16
+          
+          # ⚙️ Konfiguracja
+          config: gki_defconfig
           arch: arm64
-          aosp-gcc: true
-          aosp-clang: true
-          ksu: true
-          ksu-version: main
-          android-version: 12
-          aosp-clang-version: r383902
-          disable-lto: true
+          
+          # 🔧 Toolchain: ZyCromerZ Clang (URL do .tar.gz)
+          aosp-gcc: false
+          aosp-clang: false
+          other-clang-url: https://github.com/ZyCromerZ/Clang/releases/download/14.0.6-20250704-release/Clang-14.0.6-20250704.tar.gz
+          other-clang-branch: main  # Ignorowane przy URL, ale wymagane przez action
+          
+          # 🧩 Opcje buildu
+          ksu: false                 # KernelSU
+          susfs: false               # SUSFS
+          lxc: false                 # LXC support
+          apatch: false              # APatch
+          disable-lto: true          # Wyłącz LTO dla szybszego buildu
+          ccache: true               # Cache dla szybszych rebuildów
+          
+          # 📦 Pakowanie
           anykernel3: true
+          anykernel3-url: https://github.com/morosakubek2/AnyKernel3
+          anykernel3-branch: b2q
+          
+          # 🚀 Dodatkowe flagi make
+          extra-cmd: LLVM=1 LLVM_IAS=1 GCC_TOOLCHAIN= WERROR=0
+          
+          # 📤 Release
+          release: true
+          release-name: b2q-kernel
+          access-token: ${{ secrets.GITHUB_TOKEN }}
