@@ -39,7 +39,7 @@ jobs:
           kvm: false
           bbg: false
           disable-lto: true      # Szybszy build, mniejszy kernel
-          ccache: true           # ~3x szybsze kolejne buildy
+          ccache: false           # ~3x szybsze kolejne buildy
           
           # 📦 Pakowanie
           anykernel3: true
