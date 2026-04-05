@@ -1,24 +1,20 @@
-# .github/workflows/build.yml
+# .github/workflows/build-b2q.yml
 name: Build Kernel - Samsung Flip3 (b2q)
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ main ]
-  #   paths:
-  #     - '.github/workflows/build.yml'
 
 permissions:
-  contents: write  # Do tworzenia release'ów
+  contents: write
 
 jobs:
   build:
     name: 🐎 Build Kernel
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 180
 
     steps:
-      - name: 🚀 Build Kernel
+      - name: 🔧 Build Kernel
         uses: morosakubek2/kernel_build_action@main
         with:
           # 📁 Źródło kernela
@@ -30,28 +26,28 @@ jobs:
           arch: arm64
           
           # 🔧 Toolchain: ZyCromerZ Clang (URL do .tar.gz)
-          aosp-gcc: false
           aosp-clang: false
+          aosp-gcc: false
           other-clang-url: https://github.com/ZyCromerZ/Clang/releases/download/14.0.6-20250704-release/Clang-14.0.6-20250704.tar.gz
-          other-clang-branch: main  # Ignorowane przy URL, ale wymagane przez action
+          other-clang-branch: main  # Ignorowane przy .tar.gz, ale wymagane
           
           # 🧩 Opcje buildu
-          ksu: false                 # KernelSU
-          susfs: false               # SUSFS
-          lxc: false                 # LXC support
-          apatch: false              # APatch
-          disable-lto: true          # Wyłącz LTO dla szybszego buildu
-          ccache: true               # Cache dla szybszych rebuildów
+          ksu: false
+          rekernel: false
+          nethunter: false
+          lxc: false
+          kvm: false
+          bbg: false
+          disable-lto: true      # Szybszy build, mniejszy kernel
+          ccache: true           # ~3x szybsze kolejne buildy
           
           # 📦 Pakowanie
           anykernel3: true
           anykernel3-url: https://github.com/morosakubek2/AnyKernel3
-          anykernel3-branch: b2q
           
-          # 🚀 Dodatkowe flagi make
-          extra-cmd: LLVM=1 LLVM_IAS=1 GCC_TOOLCHAIN= WERROR=0
+          # 🔑 Dodatkowe flagi make (JSON array!)
+          extra-make-args: '["LLVM=1", "LLVM_IAS=1", "GCC_TOOLCHAIN=", "WERROR=0"]'
           
-          # 📤 Release
+          # 🚀 Release
           release: true
-          release-name: b2q-kernel
           access-token: ${{ secrets.GITHUB_TOKEN }}
